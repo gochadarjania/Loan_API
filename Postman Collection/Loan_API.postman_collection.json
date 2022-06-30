@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "272b8063-3ac2-409c-9ace-900b2f1ccc35",
+		"name": "Loan_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19198782"
+	},
+	"item": [
+		{
+			"name": "Login_Registration",
+			"item": [
+				{
+					"name": "LoginRegistration",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"user4@gmail.com\",\r\n  \"password\": \"admin1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44374/User/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44374",
+							"path": [
+								"User",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Queries_User",
+					"item": [
+						{
+							"name": "GetUserById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTY1NjQ1MDI3NywiZXhwIjoxNjU2NTM2Njc3LCJpYXQiOjE2NTY0NTAyNzd9.40BG9c_1XPIksE55qmKBxz4G2HThygfTALpWi9mtZT8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/GetUser",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"GetUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetLoansOfUser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTY1NjQ1MDI3NywiZXhwIjoxNjU2NTM2Njc3LCJpYXQiOjE2NTY0NTAyNzd9.40BG9c_1XPIksE55qmKBxz4G2HThygfTALpWi9mtZT8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/GetLoansOfUser",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"GetLoansOfUser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetLoanById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTY1NjQ1MDI3NywiZXhwIjoxNjU2NTM2Njc3LCJpYXQiOjE2NTY0NTAyNzd9.40BG9c_1XPIksE55qmKBxz4G2HThygfTALpWi9mtZT8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/GetLoanById/5",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"GetLoanById",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Commands_User",
+					"item": [
+						{
+							"name": "UpdateLoanById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTY1NjQ1NjExMywiZXhwIjoxNjU2NTQyNTEzLCJpYXQiOjE2NTY0NTYxMTN9.xR_roqT__xnnGcIxAvsKUGS_omxSbazbIvC3KRRQqyI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"loanPeriodTime\": \"2022-10-28T00:00:00\",\r\n    \"amount\": 5550,\r\n    \"currency\": 2,\r\n    \"loanType\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/UpdateLoan/10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"UpdateLoan",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTY1NjQ1NjExMywiZXhwIjoxNjU2NTQyNTEzLCJpYXQiOjE2NTY0NTYxMTN9.xR_roqT__xnnGcIxAvsKUGS_omxSbazbIvC3KRRQqyI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"loanPeriodTime\": \"2022-10-28T00:00:00\",\r\n    \"amount\": 5550,\r\n    \"currency\": 2,\r\n    \"loanType\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/UpdateLoan/10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"UpdateLoan",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateLoan",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteLoanById",
+							"request": {
+								"method": "DELETE",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Accountant",
+			"item": [
+				{
+					"name": "Commands_Accountant",
+					"item": [
+						{
+							"name": "UpdateUserById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjUiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTY1NjQ1NjExMywiZXhwIjoxNjU2NTQyNTEzLCJpYXQiOjE2NTY0NTYxMTN9.xR_roqT__xnnGcIxAvsKUGS_omxSbazbIvC3KRRQqyI",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"loanPeriodTime\": \"2022-10-28T00:00:00\",\r\n    \"amount\": 5550,\r\n    \"currency\": 2,\r\n    \"loanType\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/UpdateLoan/10",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"UpdateLoan",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateLoan",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteLoanById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjYiLCJyb2xlIjoiQWNjb3VudGFudCIsIm5iZiI6MTY1NjQ1MTQyNSwiZXhwIjoxNjU2NTM3ODI1LCJpYXQiOjE2NTY0NTE0MjV9.2lbWywSyeKIidxVrm_tYpWdqLuU66HB0qI4gtd9W08k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:44374/RoleAccountant/DeleteLoanById/4",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleAccountant",
+										"DeleteLoanById",
+										"4"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Queries_Accountant",
+					"item": [
+						{
+							"name": "GetLoansUserById",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjYiLCJyb2xlIjoiQWNjb3VudGFudCIsIm5iZiI6MTY1NjQ1MTQyNSwiZXhwIjoxNjU2NTM3ODI1LCJpYXQiOjE2NTY0NTE0MjV9.2lbWywSyeKIidxVrm_tYpWdqLuU66HB0qI4gtd9W08k",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://localhost:44374/RoleUser/GetUser/3",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"RoleUser",
+										"GetUser",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
