@@ -110,3 +110,4 @@ GO
   
 ## Testing
 The first step is to log in (username and password). Get Generated Token. Token format is "Bearer Access Token".
+[Postman Collection](https://github.com/gochadarjania/Loan_API/tree/master/Postman%20Collection)
