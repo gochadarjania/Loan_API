@@ -3,7 +3,7 @@
 # Contents
 * [Programs](#Programs)
 * [About](#About)
-* [Instalation](#Instalation)
+* [Installation](#Installation)
 * [Features](#Features)
 * [Testing](#testing)
 
@@ -25,7 +25,7 @@
 * Entity Framework Core
 * XUnit
 
-## Instalation
+## Installation
 
 * Clone github repository, or download and unzip it.
 * Create Migration  
