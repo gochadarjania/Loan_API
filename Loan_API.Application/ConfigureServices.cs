@@ -18,40 +18,41 @@ using System.Threading.Tasks;
 
 namespace Loan_API.Application
 {
-    public static class ConfigureServices
+  public static class ConfigureServices
+  {
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration Configuration)
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration Configuration)
-        {
-            services.AddAutoMapper(typeof(MappingProfile));
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddScoped<IValidator<RegistrationUser.Command>, RegistrationUser.Validator>();
-            services.AddScoped<IValidator<LoginUser.Command>, LoginUser.Validator>();
-            services.AddScoped<IValidator<UpdateUser.Command>, UpdateUser.Validator>();
+      services.AddHttpContextAccessor();
+      services.AddAutoMapper(typeof(MappingProfile));
+      services.AddMediatR(Assembly.GetExecutingAssembly());
+      services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+      services.AddScoped<IValidator<RegistrationUser.Command>, RegistrationUserValidator>();
+      services.AddScoped<IValidator<LoginUser.Command>, LoginUser.Validator>();
+      services.AddScoped<IValidator<UpdateUser.Command>, UpdateUser.Validator>();
 
-            var appSettingsSection = Configuration.GetSection("AppSettings");
-            services.Configure<AppSettings>(appSettingsSection);
-            var appSettings = appSettingsSection.Get<AppSettings>();
-            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                   .AddJwtBearer(x =>
-                   {
-                       x.RequireHttpsMetadata = false;
-                       x.SaveToken = true;
-                       x.TokenValidationParameters = new TokenValidationParameters
-                       {
-                           ValidateIssuerSigningKey = true,
-                           IssuerSigningKey = new SymmetricSecurityKey(key),
-                           ValidateIssuer = false,
-                           ValidateAudience = false
-                       };
-                   });
+      var appSettingsSection = Configuration.GetSection("AppSettings");
+      services.Configure<AppSettings>(appSettingsSection);
+      var appSettings = appSettingsSection.Get<AppSettings>();
+      var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+      services.AddAuthentication(x =>
+      {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+      })
+             .AddJwtBearer(x =>
+             {
+               x.RequireHttpsMetadata = false;
+               x.SaveToken = true;
+               x.TokenValidationParameters = new TokenValidationParameters
+               {
+                 ValidateIssuerSigningKey = true,
+                 IssuerSigningKey = new SymmetricSecurityKey(key),
+                 ValidateIssuer = false,
+                 ValidateAudience = false
+               };
+             });
 
-            return services;
-        }
+      return services;
     }
+  }
 }
