@@ -32,7 +32,7 @@ namespace Loan_API.Middleware
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
         await context.Response.WriteAsync(JsonConvert.SerializeObject(new
         {
-          StatusCode = context.Response.StatusCode,          
+          StatusCode = context.Response.StatusCode,
           Message = ex.Message
         }));
       }
