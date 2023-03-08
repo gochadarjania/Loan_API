@@ -49,7 +49,7 @@ namespace Loan_API.Infrastructure
                 );
 
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, FirstName = "Thomas", LastName = "Hardy", UserName = "admin@gmail.com", Password = BCryptNet.HashPassword("admin1234"), Age = 20, Salary = 1000, RoleId = 1},
+                new User { Id = 1, FirstName = "Thomas", LastName = "Hardy", UserName = "admin@gmail.com", Password = BCryptNet.HashPassword("admin1234"), Age = 20, Salary = 1000, RoleId = 1 },
                 new User { Id = 2, FirstName = "Christina", LastName = "Berglund", UserName = "user2@gmail.com", Password = BCryptNet.HashPassword("admin1234"), Age = 25, Salary = 1000, IsBlocked = true },
                 new User { Id = 3, FirstName = "Ana", LastName = "Trujillo", UserName = "user3@gmail.com", Password = BCryptNet.HashPassword("admin1234"), Age = 30, Salary = 1000, },
                 new User { Id = 4, FirstName = "Maria", LastName = "Anders", UserName = "user4@gmail.com", Password = BCryptNet.HashPassword("admin1234"), Age = 35, Salary = 1000, }
